@@ -1,0 +1,19 @@
+Drop real event photos in this folder, then map them in manifest.json:
+
+{
+  "hero": "hero.jpg",
+  "community": "community.jpg",
+  "yoav": "yoav.jpg",
+  "g1": "g1.jpg",
+  "g2": "g2.jpg",
+  "g3": "g3.jpg",
+  "g4": "g4.jpg",
+  "g5": "g5.jpg",
+  "g6": "g6.jpg",
+  "g7": "g7.jpg",
+  "g8": "g8.jpg",
+  "g9": "g9.jpg"
+}
+
+Use the strongest frames for hero and g4 (wide cell).
+No gym stock. Previous-event photos only.
