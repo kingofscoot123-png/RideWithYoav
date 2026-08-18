@@ -1,0 +1,200 @@
+/* Sticky day timeline — one step at a time, always a visible card */
+.dayline {
+  background: var(--bg);
+  color: var(--cream);
+  width: 100%;
+}
+
+.dayline-track.is-static .dayline-pin {
+  position: relative;
+  height: auto;
+  min-height: 0;
+  padding: 48px 20px 64px;
+}
+
+.dayline-track.is-live {
+  height: 320vh;
+}
+
+.dayline-pin {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--header-h) + 8px) 20px calc(28px + var(--sticky-h));
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 45% at 100% 0%, rgba(193, 98, 45, 0.16), transparent 55%),
+    var(--bg);
+}
+
+.dayline-head {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.dayline-eye {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta-light);
+}
+
+.dayline h2 {
+  color: var(--cream);
+}
+
+.dayline-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dayline-dots li {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: rgba(244, 237, 224, 0.22);
+  transition: width 0.35s var(--ease), background 0.35s var(--ease);
+}
+
+.dayline-dots li.is-on {
+  width: 22px;
+  background: var(--terracotta);
+}
+
+.dayline-stage {
+  position: relative;
+  width: min(520px, 100%);
+  margin: 28px auto 0;
+  min-height: 220px;
+}
+
+.dayline-card {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  align-items: start;
+  width: 100%;
+}
+
+.dayline-track.is-live .dayline-card {
+  position: absolute;
+  inset: 0 auto auto 0;
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+
+.dayline-track.is-live .dayline-card.is-on {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  pointer-events: auto;
+}
+
+.dayline-track.is-static .dayline-card + .dayline-card {
+  margin-top: 16px;
+}
+
+.dayline-card > div {
+  background: rgba(244, 237, 224, 0.08);
+  border: 1px solid rgba(244, 237, 224, 0.14);
+  border-radius: var(--radius-xl);
+  padding: 18px 18px 20px;
+}
+
+.dayline-num {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--terracotta);
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  box-shadow: 0 10px 24px -10px rgba(193, 98, 45, 0.7);
+}
+
+.dayline time {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--terracotta-light);
+}
+
+.dayline h3 {
+  margin: 4px 0 8px;
+  font-size: 26px;
+  color: var(--cream);
+}
+
+.dayline-card p {
+  color: rgba(244, 237, 224, 0.78);
+  font-size: 16px;
+}
+
+.dayline-hint {
+  margin: 22px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(244, 237, 224, 0.45);
+}
+
+.dayline-track.is-static .dayline-hint {
+  display: none;
+}
+
+@media (max-height: 720px) {
+  .dayline-pin {
+    justify-content: flex-start;
+    padding-top: calc(var(--header-h) + 10px);
+  }
+
+  .dayline h3 {
+    font-size: 22px;
+  }
+
+  .dayline-stage {
+    margin-top: 16px;
+    min-height: 180px;
+  }
+}
+
+@media (min-width: 768px) {
+  .dayline-track.is-live {
+    height: 400vh;
+  }
+
+  .dayline-pin {
+    padding: calc(var(--header-h) + 16px) 24px 40px;
+  }
+
+  .dayline-stage {
+    min-height: 240px;
+    margin-top: 36px;
+  }
+
+  .dayline h3 {
+    font-size: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dayline-track.is-live .dayline-card {
+    will-change: auto;
+  }
+
+  .dayline-dots li {
+    transition: none;
+  }
+}
