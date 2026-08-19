@@ -12,7 +12,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Assistant:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/dayline.css">
 </head>
 <body>
   <a class="skip-link" href="#main">דילוג לתוכן</a>
@@ -27,7 +26,12 @@
       </svg>
       <span class="brand-name">RideWithYoav</span>
     </a>
-    <nav class="site-nav" aria-label="ניווט ראשי">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="פתיחת תפריט">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="ניווט ראשי">
       <a href="#included">מחירים / כרטיסים</a>
       <a href="#schedule">לוח זמנים</a>
       <a href="#quotes">המלצות</a>
@@ -70,55 +74,82 @@
       </div>
     </section>
 
-    <section class="dayline" id="schedule">
-      <div class="dayline-track is-static">
-        <div class="dayline-pin">
-          <div class="dayline-head">
-            <p class="dayline-eye">לוח הזמנים</p>
-            <h2>ככה נראה היום</h2>
-            <ol class="dayline-dots" aria-hidden="true">
-              <li class="is-on"></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ol>
-          </div>
-          <div class="dayline-stage">
-            <article class="dayline-card is-on" data-step="0">
-              <span class="dayline-num">01</span>
-              <div>
-                <time>06:30</time>
-                <h3>התכנסות</h3>
-                <p>נפגשים בשטח · קפה · חלוקה לקבוצות לפי רמה</p>
-              </div>
-            </article>
-            <article class="dayline-card" data-step="1">
-              <span class="dayline-num">02</span>
-              <div>
-                <time>07:00</time>
-                <h3>רכיבה</h3>
-                <p>מסלול מודרך בשטח · קצב שלכם · לא מירוץ</p>
-              </div>
-            </article>
-            <article class="dayline-card" data-step="2">
-              <span class="dayline-num">03</span>
-              <div>
-                <time>10:30</time>
-                <h3>ארוחה וסדנה</h3>
-                <p>אוכל אמיתי בשטח · סדנת טכניקה קצרה עם הצוות</p>
-              </div>
-            </article>
-            <article class="dayline-card" data-step="3">
-              <span class="dayline-num">04</span>
-              <div>
-                <time>14:00</time>
-                <h3>צילומים</h3>
-                <p>פריימים מהיום · הביתה עם סיפור</p>
-              </div>
-            </article>
-          </div>
-          <p class="dayline-hint">גללו להמשך היום</p>
-        </div>
+    <section class="section section-day" id="schedule">
+      <div class="narrow">
+        <p class="eyebrow reveal">לוח הזמנים</p>
+        <h2 class="reveal">מה עושים ביום</h2>
+        <p class="lede reveal">ארבעה שלבים · יום אחד שלם בשטח</p>
+      </div>
+      <div class="day-grid narrow">
+        <article class="day-card glass-card reveal">
+          <span class="day-card-num">01</span>
+          <h3>התכנסות וקפה</h3>
+          <p>06:30 · נפגשים בשטח · חלוקה לקבוצות לפי רמה</p>
+        </article>
+        <article class="day-card glass-card reveal">
+          <span class="day-card-num">02</span>
+          <h3>רכיבת שטח מודרכת</h3>
+          <p>07:00 · מסלול מודרך · קצב שלכם · לא מירוץ</p>
+        </article>
+        <article class="day-card glass-card reveal">
+          <span class="day-card-num">03</span>
+          <h3>סדנה מקצועית</h3>
+          <p>10:30 · טכניקה קצרה בשטח · ארוחה אמיתית עם הצוות</p>
+        </article>
+        <article class="day-card glass-card reveal">
+          <span class="day-card-num">04</span>
+          <h3>צילומים וארוחת סיום</h3>
+          <p>14:00 · פריימים מהיום · הביתה עם סיפור</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-trust" id="quotes">
+      <div class="narrow">
+        <p class="eyebrow reveal">מהקהילה</p>
+        <h2 class="reveal">רוכבים שכבר היו שם</h2>
+        <p class="lede reveal">חוות דעת אמיתיות מאירועים קודמים</p>
+      </div>
+      <div class="trust-grid narrow">
+        <article class="trust-card glass-card reveal">
+          <div class="trust-stars" aria-label="5 מתוך 5 כוכבים">★★★★★</div>
+          <blockquote>
+            <p>חשבתי שזה עוד אימון · יצאתי עם אנשים לרכיבה הבאה</p>
+          </blockquote>
+          <footer>
+            <span class="trust-avatar" aria-hidden="true">נ</span>
+            <div>
+              <strong>נועה כהן</strong>
+              <span>רכבה באירוע קודם</span>
+            </div>
+          </footer>
+        </article>
+        <article class="trust-card glass-card reveal">
+          <div class="trust-stars" aria-label="5 מתוך 5 כוכבים">★★★★★</div>
+          <blockquote>
+            <p>המסלול מדויק · האוכל חיכה · מישהו באמת צילם אותנו</p>
+          </blockquote>
+          <footer>
+            <span class="trust-avatar" aria-hidden="true">א</span>
+            <div>
+              <strong>אלון מזרחי</strong>
+              <span>רמה בינונית · MTB</span>
+            </div>
+          </footer>
+        </article>
+        <article class="trust-card glass-card reveal">
+          <div class="trust-stars" aria-label="5 מתוך 5 כוכבים">★★★★★</div>
+          <blockquote>
+            <p>באתי עם חבר כי פחדתי לבד · עכשיו יש קבוצת וואטסאפ</p>
+          </blockquote>
+          <footer>
+            <span class="trust-avatar" aria-hidden="true">מ</span>
+            <div>
+              <strong>מיכל לוי</strong>
+              <span>הגיעה עם חברה</span>
+            </div>
+          </footer>
+        </article>
       </div>
     </section>
 
@@ -259,36 +290,6 @@
       </div>
     </section>
 
-    <section class="section section-quotes" id="quotes">
-      <div class="narrow">
-        <p class="eyebrow reveal">מהקהילה</p>
-        <h2 class="reveal">מי שהיה חוזר עם חברים</h2>
-      </div>
-      <div class="quotes narrow">
-        <blockquote class="quote-card glass-card reveal">
-          <p>חשבתי שזה עוד אימון יצאתי עם אנשים לרכיבה הבאה</p>
-          <footer>
-            <span class="quote-avatar" aria-hidden="true">נ</span>
-            <cite>נועה · רכבה באירוע קודם</cite>
-          </footer>
-        </blockquote>
-        <blockquote class="quote-card glass-card reveal">
-          <p>המסלול מדויק האוכל חיכה ומישהו באמת צילם אותנו</p>
-          <footer>
-            <span class="quote-avatar" aria-hidden="true">א</span>
-            <cite>אלון · רמה בינונית</cite>
-          </footer>
-        </blockquote>
-        <blockquote class="quote-card glass-card reveal">
-          <p>באתי עם חבר כי פחדתי לבד עכשיו יש קבוצת וואטסאפ</p>
-          <footer>
-            <span class="quote-avatar" aria-hidden="true">מ</span>
-            <cite>מיכל · הגיעה עם חברה</cite>
-          </footer>
-        </blockquote>
-      </div>
-    </section>
-
     <section class="section section-register" id="register">
       <div class="narrow">
         <p class="eyebrow reveal">הרשמה ותשלום</p>
@@ -411,7 +412,6 @@
 
   <script src="js/images.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/dayline.js"></script>
   <script src="js/yoav.js"></script>
 </body>
 </html>
