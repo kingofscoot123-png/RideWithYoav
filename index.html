@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Assistant:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/interactive.css">
 </head>
 <body>
   <a class="skip-link" href="#main">דילוג לתוכן</a>
@@ -57,8 +58,17 @@
       </div>
 
       <div class="hero-content">
+        <div class="hero-rider hero-in" style="--d:-0.5" aria-hidden="true">
+          <img
+            class="hero-rider-img"
+            src="assets/images/hero-rider.png"
+            alt=""
+            width="1105"
+            height="1303"
+            decoding="async">
+        </div>
         <p class="eyebrow hero-in" style="--d:0">יום הקהילה · 80 מקומות</p>
-        <h1 class="hero-in" style="--d:1">יום אחד<br>לכל החיים</h1>
+        <h1 class="hero-in" style="--d:1">יום אחד<br>לכל <span class="hero-accent">החיים</span></h1>
         <p class="hero-lead hero-in" style="--d:2">חוויית רכיבה עוצמתית, סדנת מקצועית מהשטח ותיעוד צילומי מלא שישאיר אתכם עם זכרונות לכל החיים.</p>
         <div class="hero-meta hero-in" style="--d:3">
           <div class="price-block">
@@ -66,8 +76,9 @@
             <span class="price-note">ליום מלא · כולל הכל</span>
           </div>
           <div class="spots">
-            <span class="price">80</span>
+            <span class="price spots-count" data-count-to="80">0</span>
             <span class="price-note">מקומות בלבד</span>
+            <span class="spots-nudge" aria-live="polite">אל תפספסו!</span>
           </div>
         </div>
         <a class="btn btn-cta hero-in" style="--d:4" href="#register">נרשמים ליום הקהילה</a>
@@ -80,27 +91,50 @@
         <h2 class="reveal">מה עושים ביום</h2>
         <p class="lede reveal">ארבעה שלבים · יום אחד שלם בשטח</p>
       </div>
-      <div class="day-grid narrow">
-        <article class="day-card glass-card reveal">
-          <span class="day-card-num">01</span>
-          <h3>התכנסות וקפה</h3>
-          <p>06:30 · נפגשים בשטח · חלוקה לקבוצות לפי רמה</p>
-        </article>
-        <article class="day-card glass-card reveal">
-          <span class="day-card-num">02</span>
-          <h3>רכיבת שטח מודרכת</h3>
-          <p>07:00 · מסלול מודרך · קצב שלכם · לא מירוץ</p>
-        </article>
-        <article class="day-card glass-card reveal">
-          <span class="day-card-num">03</span>
-          <h3>סדנה מקצועית</h3>
-          <p>10:30 · טכניקה קצרה בשטח · ארוחה אמיתית עם הצוות</p>
-        </article>
-        <article class="day-card glass-card reveal">
-          <span class="day-card-num">04</span>
-          <h3>צילומים וארוחת סיום</h3>
-          <p>14:00 · פריימים מהיום · הביתה עם סיפור</p>
-        </article>
+      <div class="day-timeline narrow">
+        <aside class="day-track" aria-hidden="true">
+          <div class="day-track-rail">
+            <div class="day-track-fill"></div>
+          </div>
+          <div class="day-bike">
+            <svg class="day-bike-icon" viewBox="0 0 40 32" aria-hidden="true">
+              <path d="M4 24c7-12 15-15 24-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="7" cy="25" r="4.2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="23" cy="25" r="4.2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M11 25h8.5M16.4 25l-3-6.4h6.4l2.4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="day-finish" aria-hidden="true">
+            <div class="day-finish-line"></div>
+            <svg class="day-finish-flag" viewBox="0 0 32 28" aria-hidden="true">
+              <path d="M2 2v24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M2 4h18l-3 4 3 4H2V4Z" fill="currentColor"/>
+              <path d="M5 8h11M5 12h11" stroke="var(--bg-deep)" stroke-width="1.2" opacity="0.45"/>
+            </svg>
+          </div>
+        </aside>
+        <div class="day-steps">
+          <article class="day-card glass-card" data-step="1">
+            <span class="day-card-num">01</span>
+            <h3>התכנסות וקפה</h3>
+            <p>06:30 · נפגשים בשטח · חלוקה לקבוצות לפי רמה</p>
+          </article>
+          <article class="day-card glass-card" data-step="2">
+            <span class="day-card-num">02</span>
+            <h3>רכיבת שטח מודרכת</h3>
+            <p>07:00 · מסלול מודרך · קצב שלכם · לא מירוץ</p>
+          </article>
+          <article class="day-card glass-card" data-step="3">
+            <span class="day-card-num">03</span>
+            <h3>סדנה מקצועית</h3>
+            <p>10:30 · טכניקה קצרה בשטח · ארוחה אמיתית עם הצוות</p>
+          </article>
+          <article class="day-card glass-card" data-step="4">
+            <span class="day-card-num">04</span>
+            <h3>צילומים וארוחת סיום</h3>
+            <p>14:00 · פריימים מהיום · הביתה עם סיפור</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -110,46 +144,59 @@
         <h2 class="reveal">רוכבים שכבר היו שם</h2>
         <p class="lede reveal">חוות דעת אמיתיות מאירועים קודמים</p>
       </div>
-      <div class="trust-grid narrow">
-        <article class="trust-card glass-card reveal">
-          <div class="trust-stars" aria-label="5 מתוך 5 כוכבים">★★★★★</div>
-          <blockquote>
-            <p>חשבתי שזה עוד אימון · יצאתי עם אנשים לרכיבה הבאה</p>
-          </blockquote>
-          <footer>
-            <span class="trust-avatar" aria-hidden="true">נ</span>
-            <div>
-              <strong>נועה כהן</strong>
-              <span>רכבה באירוע קודם</span>
+      <div class="trust-carousel narrow" id="trust-carousel" tabindex="0">
+        <div class="carousel-shell">
+          <button type="button" class="carousel-btn carousel-prev" aria-label="המלצה קודמת">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <article class="trust-card glass-card">
+                <div class="trust-stars" aria-label="5 מתוך 5 כוכבים">★★★★★</div>
+                <blockquote>
+                  <p>חשבתי שזה עוד אימון · יצאתי עם אנשים לרכיבה הבאה</p>
+                </blockquote>
+                <footer>
+                  <span class="trust-avatar" aria-hidden="true">נ</span>
+                  <div>
+                    <strong>נועה כהן</strong>
+                    <span>רכבה באירוע קודם</span>
+                  </div>
+                </footer>
+              </article>
+              <article class="trust-card glass-card">
+                <div class="trust-stars" aria-label="5 מתוך 5 כוכבים">★★★★★</div>
+                <blockquote>
+                  <p>המסלול מדויק · האוכל חיכה · מישהו באמת צילם אותנו</p>
+                </blockquote>
+                <footer>
+                  <span class="trust-avatar" aria-hidden="true">א</span>
+                  <div>
+                    <strong>אלון מזרחי</strong>
+                    <span>רמה בינונית · MTB</span>
+                  </div>
+                </footer>
+              </article>
+              <article class="trust-card glass-card">
+                <div class="trust-stars" aria-label="5 מתוך 5 כוכבים">★★★★★</div>
+                <blockquote>
+                  <p>באתי עם חבר כי פחדתי לבד · עכשיו יש קבוצת וואטסאפ</p>
+                </blockquote>
+                <footer>
+                  <span class="trust-avatar" aria-hidden="true">מ</span>
+                  <div>
+                    <strong>מיכל לוי</strong>
+                    <span>הגיעה עם חברה</span>
+                  </div>
+                </footer>
+              </article>
             </div>
-          </footer>
-        </article>
-        <article class="trust-card glass-card reveal">
-          <div class="trust-stars" aria-label="5 מתוך 5 כוכבים">★★★★★</div>
-          <blockquote>
-            <p>המסלול מדויק · האוכל חיכה · מישהו באמת צילם אותנו</p>
-          </blockquote>
-          <footer>
-            <span class="trust-avatar" aria-hidden="true">א</span>
-            <div>
-              <strong>אלון מזרחי</strong>
-              <span>רמה בינונית · MTB</span>
-            </div>
-          </footer>
-        </article>
-        <article class="trust-card glass-card reveal">
-          <div class="trust-stars" aria-label="5 מתוך 5 כוכבים">★★★★★</div>
-          <blockquote>
-            <p>באתי עם חבר כי פחדתי לבד · עכשיו יש קבוצת וואטסאפ</p>
-          </blockquote>
-          <footer>
-            <span class="trust-avatar" aria-hidden="true">מ</span>
-            <div>
-              <strong>מיכל לוי</strong>
-              <span>הגיעה עם חברה</span>
-            </div>
-          </footer>
-        </article>
+          </div>
+          <button type="button" class="carousel-btn carousel-next" aria-label="המלצה הבאה">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+        </div>
+        <div class="carousel-dots" role="tablist" aria-label="בחירת המלצה"></div>
       </div>
     </section>
 
@@ -159,7 +206,7 @@
         <h2 class="reveal">אתם כבר רוכבים · חסר היום שמסביב</h2>
         <p class="body-lg reveal">אנשים לצידכם צוות על המסלול ארוחה בסוף ותמונות שנשארות זה יום הקהילה</p>
       </div>
-      <figure class="bleed-photo reveal">
+      <figure class="bleed-photo pain-visual reveal">
         <img
           class="shot shot-wide"
           data-key="community"
@@ -202,15 +249,15 @@
           <p class="yoav-line">לא אימון עם לוגו · יום שבו הקהילה נפגשת במסלול בשולחן ובסדנה</p>
           <ul class="facts">
             <li class="fact-card">
-              <strong data-count="15" data-suffix="">15</strong>
+              <strong class="fact-count" data-count="15" data-suffix="" data-duration="900">0</strong>
               שנות רכיבה
             </li>
             <li class="fact-card">
-              <strong data-count="18" data-suffix="K">18K</strong>
+              <strong class="fact-count" data-count="18" data-suffix="K" data-duration="3400">0</strong>
               עוקבים באינסטגרם
             </li>
             <li class="fact-card">
-              <strong data-count="1" data-suffix="">1</strong>
+              <strong class="fact-count" data-count="1" data-suffix="" data-duration="900">0</strong>
               יום כולם ביחד
             </li>
           </ul>
@@ -224,20 +271,20 @@
         <h2 class="reveal">הקהילה לא הסטודיו</h2>
         <p class="lede reveal">הרגעים שכבר מכירים מהאינסטגרם</p>
       </div>
-      <div class="ig-grid" role="list">
-        <figure class="ig-cell reveal" role="listitem">
+      <div class="gallery-scroll" role="list">
+        <figure class="gallery-frame" role="listitem">
           <img class="shot" data-key="g1" src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=900&h=900&q=85" alt="יציאת בוקר לרכיבה באור זהוב" width="900" height="900" loading="lazy" decoding="async">
           <figcaption>יציאת בוקר</figcaption>
         </figure>
-        <figure class="ig-cell reveal" role="listitem">
+        <figure class="gallery-frame" role="listitem">
           <img class="shot" data-key="g2" src="https://images.unsplash.com/photo-1633707167344-503c1c751027?auto=format&fit=crop&w=900&h=900&q=85" alt="רוכב אופני הרים בסינגל ביער" width="900" height="900" loading="lazy" decoding="async">
           <figcaption>סינגל</figcaption>
         </figure>
-        <figure class="ig-cell reveal" role="listitem">
+        <figure class="gallery-frame" role="listitem">
           <img class="shot" data-key="g3" src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&h=900&q=85" alt="רכיבה קבוצתית בשטח" width="900" height="900" loading="lazy" decoding="async">
           <figcaption>קבוצה</figcaption>
         </figure>
-        <figure class="ig-cell reveal" role="listitem">
+        <figure class="gallery-frame" role="listitem">
           <img class="shot" data-key="g4" src="https://images.unsplash.com/photo-1633707167669-37bffb6592c9?auto=format&fit=crop&w=900&h=900&q=85" alt="רוכב אופני הרים בסינגל עפר בשטח" width="900" height="900" loading="lazy" decoding="async">
           <figcaption>שטח</figcaption>
         </figure>
@@ -249,7 +296,7 @@
         <p class="eyebrow reveal">מה כלול</p>
         <h2 class="reveal">690 ₪ · הכל בפנים</h2>
         <ul class="included-list">
-          <li class="glass-card reveal">
+          <li class="glass-card inc-card reveal">
             <span class="inc-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6.5" cy="16.5" r="2.4"/><circle cx="17" cy="16.5" r="2.4"/><path d="M8.8 16.5h5.6M14.2 16.5 12 10.2H8.2L7 13.2h3"/><path d="M4 20.5c5-3 11-3 16 0"/></svg>
             </span>
@@ -258,7 +305,7 @@
               <p>קבוצות לפי רמה ליווי של מי שמכיר את השטח</p>
             </div>
           </li>
-          <li class="glass-card reveal">
+          <li class="glass-card inc-card reveal">
             <span class="inc-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 9.5h16l-1.2 8.2A2 2 0 0 1 16.8 20H7.2a2 2 0 0 1-2-1.7L4 9.5Z"/><path d="M8 9.5V7.8A4 4 0 0 1 12 4a4 4 0 0 1 4 3.8V9.5"/></svg>
             </span>
@@ -267,7 +314,7 @@
               <p>אוכל אמיתי בשטח לא חטיף בתחנת דלק</p>
             </div>
           </li>
-          <li class="glass-card reveal">
+          <li class="glass-card inc-card reveal">
             <span class="inc-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3"/><path d="M6.5 19c.6-3 2.6-4.6 5.5-4.6S16.9 16 17.5 19"/></svg>
             </span>
@@ -276,7 +323,7 @@
               <p>טכניקה קצרה עם הצוות לא הרצאה באולם</p>
             </div>
           </li>
-          <li class="glass-card reveal">
+          <li class="glass-card inc-card reveal">
             <span class="inc-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="6.5" width="17" height="13" rx="2"/><circle cx="12" cy="13" r="3.2"/><path d="M8 6.5 9.2 4h5.6L16 6.5"/></svg>
             </span>
@@ -292,6 +339,7 @@
 
     <section class="section section-register" id="register">
       <div class="narrow">
+        <p class="register-nudge" aria-live="polite">אל תפספסו</p>
         <p class="eyebrow reveal">הרשמה ותשלום</p>
         <h2 class="reveal">שומרים לכם מקום</h2>
         <p class="lede reveal">80 מקומות · נרשמים · משלמים · מקבלים אישור</p>
@@ -412,6 +460,7 @@
 
   <script src="js/images.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/interactive.js"></script>
   <script src="js/yoav.js"></script>
 </body>
 </html>
