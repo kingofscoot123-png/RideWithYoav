@@ -889,6 +889,7 @@ p {
   line-height: 1;
   color: var(--cream);
   margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
 }
 
 @media (hover: hover) {
