@@ -1,5 +1,7 @@
 (() => {
   const header = document.getElementById("header");
+  const navToggle = document.querySelector(".nav-toggle");
+  const siteNav = document.getElementById("site-nav");
   const sticky = document.getElementById("sticky-cta");
   const register = document.getElementById("register");
   const form = document.getElementById("reg-form");
@@ -41,6 +43,27 @@
 
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
+
+  const closeNav = () => {
+    header?.classList.remove("is-nav-open");
+    navToggle?.setAttribute("aria-expanded", "false");
+    navToggle?.setAttribute("aria-label", "פתיחת תפריט");
+  };
+
+  navToggle?.addEventListener("click", () => {
+    const open = !header.classList.contains("is-nav-open");
+    header.classList.toggle("is-nav-open", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+    navToggle.setAttribute("aria-label", open ? "סגירת תפריט" : "פתיחת תפריט");
+  });
+
+  siteNav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeNav);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) closeNav();
+  });
 
   const reveals = [...document.querySelectorAll(".reveal")];
 
