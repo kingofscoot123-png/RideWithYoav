@@ -463,6 +463,31 @@
 }
 
 /* Gallery — sequential scroll reveal */
+.section-gallery .narrow {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.section-gallery .lede {
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.section-gallery .gallery-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 0;
+  width: min(var(--narrow), calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.section-gallery .gallery-frame {
+  justify-content: flex-start;
+  min-height: min(62vh, 520px);
+  padding-top: 0;
+}
+
 .gallery-scroll {
   display: flex;
   flex-direction: column;
